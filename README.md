@@ -65,11 +65,14 @@ Rscript -e 'biovizshiny::run_app(host="0.0.0.0", port=3838)'
 
 ```bash
 Rscript -e 'testthat::test_local()'
-R CMD build .
-R CMD check --no-manual biovizshiny_1.0.0.tar.gz
+Rscript -e 'rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")'
 docker build -t bioviz-shiny .
 docker run --rm -p 3838:3838 bioviz-shiny
 ```
+
+Using `rcmdcheck::rcmdcheck()` avoids hard-coding the package version into the
+generated tarball name, so this verification command continues to work after a
+version bump.
 
 ## Deployment choices
 
