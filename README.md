@@ -33,6 +33,8 @@ analysis-specific state without using global mutable variables.
 
 ## Run locally
 
+Requires **R 4.1 or newer**, matching the package metadata in `DESCRIPTION`.
+
 ```r
 install.packages(c("remotes", "shiny"))
 remotes::install_github("mbilal-OU/shiny-omics-explorer")
